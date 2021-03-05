@@ -1,0 +1,1 @@
+Sitemap: https://directfb2.github.io/sitemap.xml
