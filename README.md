@@ -38,7 +38,7 @@
 
 # Getting started
 
-Components running on _DirectFB_ graphics backend are based on _**libdirectfb.so** library_. Compositing windowing system is performed by the default _**libdirectfb.so** window manager module_ with _**libidirectfbwindows_default.so** plugin_. Cooperation between various process is achieved through the _**fusion.ko** kernel module_.
+Components running on _DirectFB_ graphics backend are based on _**libdirectfb.so** library_. Compositing windowing system is performed by the default _**libdirectfb.so** window manager module_ with _**libdirectfbwm_default.so** plugin_. Cooperation between various process is achieved through the _**fusion.ko** kernel module_.
 
 The following graphics driver interface can be used by _**libdirectfb.so** library_ for the display:
   * _Linux Framebuffer_ interface (`/dev/fb0`) handled with _**libdirectfb_fbdev.so** plugin_
