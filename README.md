@@ -1,65 +1,68 @@
 **DirectFB2** is a fork of _DirectFB_ whose purpose is to preserve and maintain the _DirectFB_ graphics backend, particularly for use on embedded systems.
 
-<a name="contents">
+<a name="contents"></a>
 
 # Contents
 
 * [Getting started](#getting-started)
-  * [DFBTerm](#dfbterm)
-  * [DirectFB-examples](#directfb-examples)
-  * [DirectFB toolkits](#directfb-toolkits)
+    * [DFBTerm](#dfbterm)
+    * [DirectFB-examples](#directfb-examples)
+    * [DirectFB toolkits](#directfb-toolkits)
 * [Vulkan rendering](#vulkan-rendering)
 * [OpenGL rendering](#opengl-rendering)
-  * [DirectFBGL](#directfbgl)
-  * [EGL for DirectFB](#egl-for-directfb)
+    * [DirectFBGL](#directfbgl)
+    * [EGL for DirectFB](#egl-for-directfb)
 * [Drawing libraries](#drawing-libraries)
-  * [Cairo](#cairo)
-  * [Evas](#evas)
+    * [Cairo](#cairo)
+    * [Evas](#evas)
 * [Multimedia frameworks](#multimedia-frameworks)
-  * [FFmpeg](#ffmpeg)
-  * [GStreamer](#gstreamer)
-  * [Xine](#xine)
-  * [DirectFB-media](#directfb-media)
+    * [FFmpeg](#ffmpeg)
+    * [GStreamer](#gstreamer)
+    * [Xine](#xine)
+    * [DirectFB-media](#directfb-media)
 * [Tools](#tools)
-  * [DFBView](#dfbview)
-  * [Projektor](#projektor)
-  * [NetSurf, Links](#netsurf-links)
-  * [DFBSee, ilixi_player, MPlayer](#dfbsee-ilixi_player-mplayer)
+    * [DFBView](#dfbview)
+    * [Projektor](#projektor)
+    * [NetSurf, Links](#netsurf-links)
+    * [DFBSee, ilixi_player, MPlayer](#dfbsee-ilixi_player-mplayer)
 * [Graphics abstraction layers](#graphics-abstraction-layers)
-  * [GLUT](#glut)
-  * [SDL](#sdl)
+    * [GLUT](#glut)
+    * [SDL](#sdl)
 * [User interface toolkits](#user-interface-toolkits)
-  * [GTK+](#gtk)
-  * [Qt](#qt)
-  * [EFL](#efl)
+    * [GTK+](#gtk)
+    * [Qt](#qt)
+    * [EFL](#efl)
+    * [FLTK](#fltk)
 * [Applications](#applications)
 
-<a name="getting-started">
+<a name="getting-started"></a>
 
 # Getting started
 
 Components running on _DirectFB_ graphics backend are based on _**libdirectfb.so** library_. Compositing windowing system is performed by the default _**libdirectfb.so** window manager module_ with _**libdirectfbwm_default.so** plugin_. Cooperation between various process is achieved through the _**fusion.ko** kernel module_.
 
 The following graphics driver interface can be used by _**libdirectfb.so** library_ for the display:
-  * _Linux Framebuffer_ interface (`/dev/fb0`) handled with _**libdirectfb_fbdev.so** plugin_
-  * _KMS/DRM_ interface (`/dev/dri/card0`) handled with _**libdirectfb_drmkms.so** plugin_
+
+* _Linux Framebuffer_ interface (`/dev/fb0`) handled with _**libdirectfb_fbdev.so** plugin_
+* _KMS/DRM_ interface (`/dev/dri/card0`) handled with _**libdirectfb_drmkms.so** plugin_
 
 But depending on the platform, it's possible to use specific graphics driver interfaces based on the _**libdirectfb.so** system module_ architecture. If available on the platform, hardware accelerated graphic rendering can also be achieved based on the _**libdirectfb.so** gfxdriver module_ architecture.
 
 <p align="center"><img src="dfb.png"></p>
 
 The following input interface can be used by _**libdirectfb.so** library_ for managing the keyboard:
-  * _console_ interface (`/dev/tty0`) handled with _**libdirectfb_keyboard.so** plugin_
-  * _event device_ interface (`/dev/input/event0`) handled with _**libdirectfb_linux_input.so** plugin_
+
+* _console_ interface (`/dev/tty0`) handled with _**libdirectfb_keyboard.so** plugin_
+* _event device_ interface (`/dev/input/event0`) handled with _**libdirectfb_linux_input.so** plugin_
 
 and for managing the mouse:
 
-  * _PS/2 mouse_ interface (`/dev/psaux`) handled with _**libdirectfb_ps2mouse.so** plugin_
-  * _event device_ interface (`/dev/input/event1`) handled with _**libdirectfb_linux_input.so** plugin_
+* _PS/2 mouse_ interface (`/dev/psaux`) handled with _**libdirectfb_ps2mouse.so** plugin_
+* _event device_ interface (`/dev/input/event1`) handled with _**libdirectfb_linux_input.so** plugin_
 
 But depending on the input peripheral, it's possible to use specific input driver interfaces based on the _**libdirectfb.so** inputdriver module_ architecture.
 
-<a name="dfbterm">
+<a name="dfbterm"></a>
 
 ### DFBTerm
 
@@ -70,7 +73,7 @@ System informations about _DirectFB_ settings can be get with _**dfbinfo**_.
 
 [Back to Top](#contents)
 
-<a name="directfb-examples">
+<a name="directfb-examples"></a>
 
 ### DirectFB-examples
 
@@ -80,12 +83,12 @@ Programs running on _DirectFB_ graphics backend are available as examples, tests
 
 [Back to Top](#contents)
 
-<a name="directfb-toolkits">
+<a name="directfb-toolkits"></a>
 
 ### DirectFB toolkits
 
 Simple graphical user interfaces can rely on _LiTE_ (Lightweight Toolkit Enabler) and its extended Component Kit (_LeCK_), or on the _ilixi_ toolkit.
-_LiTE_ interfaces are provided by _**libleck.so** library_ and _ilixi_ interfaces are provided by _**libilixi.so** library_.
+_LiTE_ interfaces are provided by _**liblite.so, libleck.so** libraries_ and _ilixi_ interfaces are provided by _**libilixi.so** library_.
 
 <p align="center"><img src="lite-ilixi.png"></p>
 
@@ -99,7 +102,7 @@ _**ilixi-apps**_ programs are available as examples.
 
 [Back to Top](#contents)
 
-<a name="vulkan-rendering">
+<a name="vulkan-rendering"></a>
 
 # Vulkan rendering
 
@@ -117,17 +120,18 @@ _**Vulkan-Tools**_, _**Vulkan-Examples**_, _**vkcube2**_ and _**yagears2**_ prog
 
 [Back to Top](#contents)
 
-<a name="opengl-rendering">
+<a name="opengl-rendering"></a>
 
 # OpenGL rendering
 
 For display rendering with _DirectFB_ graphics backend, _OpenGL_ implementation in _**libGL.so** library_, but also _OpenGL ES 1.1 CM_ implementation in _**libGLESv1_CM.so** library_ and _OpenGL ES 2.0_ implementation in _**libGLESv2.so** library_, rely on _DirectFBGL_ or _EGL for DirectFB_ interfaces.
 
 Loading libraries can be used:
-  * _**libGLEW.so** library_ from _GLEW_ (OpenGL Extension Wrangler)
-  * _**libepoxy.so** library_ from _Epoxy_
 
-<a name="directfbgl">
+* _**libGLEW.so** library_ from _GLEW_ (OpenGL Extension Wrangler)
+* _**libepoxy.so** library_ from _Epoxy_
+
+<a name="directfbgl"></a>
 
 ### DirectFBGL
 
@@ -143,7 +147,7 @@ _**mesa-demos**_ and _**yagears**_ programs are available as examples, tests or 
 
 [Back to Top](#contents)
 
-<a name="egl-for-directfb">
+<a name="egl-for-directfb"></a>
 
 ### EGL for DirectFB
 
@@ -159,11 +163,11 @@ _**mesa-demos**_ and _**yagears**_ programs are available as examples, tests or 
 
 [Back to Top](#contents)
 
-<a name="drawing-libraries">
+<a name="drawing-libraries"></a>
 
 # Drawing libraries
 
-<a name="cairo">
+<a name="cairo"></a>
 
 ### Cairo
 
@@ -177,7 +181,7 @@ _**cairo-demos**_ programs are available as examples, tests or benchmarks.
 
 [Back to Top](#contents)
 
-<a name="evas">
+<a name="evas"></a>
 
 ### Evas
 
@@ -191,11 +195,11 @@ _**expedite**_ program is available as examples, tests or benchmarks.
 
 [Back to Top](#contents)
 
-<a name="multimedia-frameworks">
+<a name="multimedia-frameworks"></a>
 
 # Multimedia frameworks
 
-<a name="ffmpeg">
+<a name="ffmpeg"></a>
 
 ### FFmpeg
 
@@ -207,13 +211,14 @@ _**ffmpeg**_ program is available as example.
 
 [Back to Top](#contents)
 
-<a name="gstreamer">
+<a name="gstreamer"></a>
 
 ### GStreamer
 
 _GStreamer_ interfaces for _DirectFB_ graphics backend are provided by:
-  * _**libgstreamer-0.10.so** library_ on _GStreamer 0.10_
-  * _**libgstreamer-1.0.so** library_ on _GStreamer 1_
+
+* _**libgstreamer-0.10.so** library_ on _GStreamer 0.10_
+* _**libgstreamer-1.0.so** library_ on _GStreamer 1_
 
 and rely on _**libgstdfbvideosink.so** plugin_ for output.
 
@@ -227,7 +232,7 @@ _**gst-launch-1.0**_ program is available as example on _GStreamer 1_.
 
 [Back to Top](#contents)
 
-<a name="xine">
+<a name="xine"></a>
 
 ### Xine
 
@@ -239,7 +244,7 @@ _**xine-ui**_ program is available as example.
 
 [Back to Top](#contents)
 
-<a name="directfb-media">
+<a name="directfb-media"></a>
 
 ### DirectFB-media
 
@@ -255,29 +260,29 @@ _**df_video_sample**_ program is available as example.
 
 [Back to Top](#contents)
 
-<a name="tools">
+<a name="tools"></a>
 
 # Tools
 
-<a name="dfbview">
+<a name="dfbview"></a>
 
 ### DFBView
 
 ![](dfbview.png)
 
-<a name="projektor">
+<a name="projektor"></a>
 
 ### Projektor
 
 ![](projektor.png)
 
-<a name="netsurf-links">
+<a name="netsurf-links"></a>
 
 ### NetSurf, Links
 
 ![](netsurf-links-directfb.png)
 
-<a name="dfbsee-ilixi_player-mplayer">
+<a name="dfbsee-ilixi_player-mplayer"></a>
 
 ### DFBSee, ilixi_player, MPlayer
 
@@ -285,11 +290,11 @@ _**df_video_sample**_ program is available as example.
 
 [Back to Top](#contents)
 
-<a name="graphics-abstraction-layers">
+<a name="graphics-abstraction-layers"></a>
 
 # Graphics abstraction layers
 
-<a name="glut">
+<a name="glut"></a>
 
 ### GLUT
 
@@ -305,13 +310,14 @@ _**mesa-demos**_ and _**yagears**_ programs are available as examples, tests or 
 
 [Back to Top](#contents)
 
-<a name="sdl">
+<a name="sdl"></a>
 
 ### SDL
 
 _SDL (Simple Directmedia Layer)_ interfaces running on _DirectFB_ graphics backend are provided by:
-  * _**libSDL.so** library_ on _SDL 1_
-  * _**libSDL2.so** library_ on _SDL 2_
+
+* _**libSDL.so** library_ on _SDL 1_
+* _**libSDL2.so** library_ on _SDL 2_
 
 <p align="center"><img src="dfb-sdl.png"></p>
 
@@ -327,11 +333,11 @@ _**SDL2-test**_ and _**yagears2**_ programs are available as examples, tests or 
 
 [Back to Top](#contents)
 
-<a name="user-interface-toolkits">
+<a name="user-interface-toolkits"></a>
 
 # User interface toolkits
 
-<a name="gtk">
+<a name="gtk"></a>
 
 ### GTK+
 
@@ -339,8 +345,9 @@ Graphical user interfaces can rely on _GTK+_ (Gimp ToolKit) using the port for _
 Web rendering can then rely on _WebKitGTK+_, a port of the WebKit browser engine for _GTK+_.
 
 _GTK+_ interfaces running on _DirectFB_ graphics backend are provided by:
-  * _**libgtk-2.0.so**, **libgtkgl-2.0.so** libraries_ on _GTK+ 2_
-  * _**libgtk-3.0.so**, **libgtkgl-3.0.so** libraries_ on _GTK+ 3_
+
+* _**libgtk-2.0.so**, **libgtkgl-2.0.so** libraries_ on _GTK+ 2_
+* _**libgtk-3.0.so**, **libgtkgl-3.0.so** libraries_ on _GTK+ 3_
 
 <p align="center"><img src="dfb-gtk.png"></p>
 
@@ -351,8 +358,9 @@ _**gtk-demo**_, _**gtk-tests**_, _**gtkperf**_ and _**yagears**_ programs are av
 ![](gtk-directfb.png)
 
 _WebKitGTK+_ interfaces for _GTK+_ with _DirectFB_ graphics backend are provided by:
-  * _**libwebkitgtk-2.0.so** library_ on _GTK+ 2_
-  * _**libwebkitgtk-3.0.so** library_ on _GTK+ 3_
+
+* _**libwebkitgtk-2.0.so** library_ on _GTK+ 2_
+* _**libwebkitgtk-3.0.so** library_ on _GTK+ 3_
 
 <p align="center"><img src="dfb-webkitgtk.png"></p>
 
@@ -364,7 +372,7 @@ _**GtkLauncher**_ program is available as example.
 
 [Back to Top](#contents)
 
-<a name="qt">
+<a name="qt"></a>
 
 ### Qt
 
@@ -372,8 +380,9 @@ Graphical user interfaces can rely on _Qt_ (Q toolKit) using the port for _Direc
 Web rendering can then rely on _QtWebKit_, a port of the WebKit browser engine for _Qt_.
 
 _Qt_ interfaces running on _DirectFB_ graphics backend are provided by:
-  * _**libQtGui.so** and **libQtOpenGL.so** libraries_ on _Qt 4_
-  * _**libQt5Gui.so** and **libQt5OpenGL.so** libraries_ on _Qt 5_
+
+* _**libQtGui.so** and **libQtOpenGL.so** libraries_ on _Qt 4_
+* _**libQt5Gui.so** and **libQt5OpenGL.so** libraries_ on _Qt 5_
 
 <p align="center"><img src="dfb-qt.png"></p>
 
@@ -384,8 +393,9 @@ _**qtdemo**_, _**qt-examples**_, _**qtperf**_ and _**yagears**_ programs are ava
 ![](qt-directfb.png)
 
 _QtWebKit_ interfaces for _Qt_ with _DirectFB_ graphics backend are provided by:
-  * _**libQtWebKit.so** library_ on _Qt 4_
-  * _**libQt5WebKit.so** library_ on _Qt 5_
+
+* _**libQtWebKit.so** library_ on _Qt 4_
+* _**libQt5WebKit.so** library_ on _Qt 5_
 
 <p align="center"><img src="dfb-qtwebkit.png"></p>
 
@@ -397,7 +407,7 @@ _**QtTestBrowser**_ program is available as example.
 
 [Back to Top](#contents)
 
-<a name="efl">
+<a name="efl"></a>
 
 ### EFL
 
@@ -407,13 +417,31 @@ _EFL_ with _Elementary_ interfaces running on _DirectFB_ graphics backend are pr
 
 <p align="center"><img src="dfb-efl.png"></p>
 
-For _OpenGL_ rendering, note that _EGL for Linux DirectFB_ interfaces can also be used internally by _EFL_ with _Elementary_ instead of _DirectFBGL_ interfaces.
+For _OpenGL_ rendering, note that _EGL for DirectFB_ interfaces can also be used internally by _EFL_ with _Elementary_ instead of _DirectFBGL_ interfaces.
 
 _**elementary-test**_, _**elementary-examples**_ and _**yagears**_ programs are available as examples, tests or benchmarks.
 
 [Back to Top](#contents)
 
-<a name="applications">
+<a name="fltk"></a>
+
+### FLTK
+
+Graphical user interfaces can rely on _FLTK_ (Fast Light Tool Kit) using the port for _DirectFB_ graphics backend.
+
+_FLTK_ interfaces running on _DirectFB_ graphics backend are provided by _**libfltk.so** and **libfltk_gl.so** libraries_.
+
+<p align="center"><img src="dfb-fltk.png"></p>
+
+For _OpenGL_ rendering, note that _EGL for DirectFB_ interfaces can also be used internally by _FLTK_ instead of _DirectFBGL_ interfaces.
+
+_**fltk-test**_ and _**yagears**_ programs are available as examples, tests or benchmarks.
+
+![](fltk-directfb.png)
+
+[Back to Top](#contents)
+
+<a name="applications"></a>
 
 # Applications
 
