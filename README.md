@@ -87,8 +87,8 @@ Programs running on _DirectFB_ graphics backend are available as examples, tests
 
 ### DirectFB toolkits
 
-Simple graphical user interfaces can rely on _LiTE_ (Lightweight Toolkit Enabler) and its extended Component Kit (_LeCK_), or on the _ilixi_ toolkit.
-_LiTE_ interfaces are provided by _**liblite.so, libleck.so** libraries_ and _ilixi_ interfaces are provided by _**libilixi.so** library_.
+Simple graphical user interfaces can rely on _LiTE_ (Lightweight Toolkit Enabler) or on the _ilixi_ toolkit.
+_LiTE_ interfaces are provided by _**liblite.so** library_ and _ilixi_ interfaces are provided by _**libilixi.so** library_.
 
 <p align="center"><img src="lite-ilixi.png"></p>
 
